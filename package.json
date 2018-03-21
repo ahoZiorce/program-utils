@@ -1,0 +1,14 @@
+{
+  "name": "program-utils",
+  "version": "1.0.0",
+  "description": "A module to parse arguments and to provide easy configuration file",
+  "main": "libs/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "aws",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^4.19.0"
+  }
+}

@@ -1,3 +1,4 @@
+![build](https://img.shields.io/travis/ahoZiorce/program-utils.svg)
 # program-utils
 A module to parse arguments and to provide easy configuration file.
 

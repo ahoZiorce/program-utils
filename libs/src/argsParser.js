@@ -65,7 +65,7 @@ module.exports = class argsParser {
             lastMono = chars[j];
           }
           else {
-            res.unknown.push(chars[j]);
+            res.unknown.push(`-${chars[j]}`);
           }
         }
         if (monoMatch[2] && lastMono) {

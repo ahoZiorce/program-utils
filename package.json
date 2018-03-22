@@ -1,14 +1,30 @@
 {
   "name": "program-utils",
   "version": "1.0.0",
+  "keywords": [
+    "config",
+    "args",
+    "parser",
+    "program",
+    "utils"
+  ],
+  "bugs": {
+    "url": "https://github.com/ahoZiorce/program-utils/issues"
+  },
   "description": "A module to parse arguments and to provide easy configuration file",
   "main": "libs/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ahoZiorce/program-utils.git"
   },
   "author": "aws",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^4.19.0"
+    "chai": "^4.1.2",
+    "eslint": "^4.19.0",
+    "mocha": "^5.0.4"
   }
 }

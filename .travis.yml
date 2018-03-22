@@ -3,8 +3,12 @@ language: node_js
 node_js:
   - lts/*
 
+os:
+  - linux
+  - osx
+
 before_script:
-    - npm install
+  - npm install
 
 script:
-    - npm run test
+  - npm run test

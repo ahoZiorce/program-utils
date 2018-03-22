@@ -1,3 +1,5 @@
 node_modules/
 test.conf
 .vscode/
+index.js
+config.conf

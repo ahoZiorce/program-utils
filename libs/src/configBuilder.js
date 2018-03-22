@@ -15,6 +15,11 @@ module.exports = class configBuilder {
     return this;
   }
 
+  addComment(content) {
+    this.string += `# ${content}\n`;
+    return this;
+  }
+
   letSpace() {
     this.string += `\n`;
     return this;

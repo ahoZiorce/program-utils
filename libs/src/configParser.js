@@ -1,13 +1,13 @@
 const fs = require('fs');
 
-module.exports = function parse(file) {
+module.exports = function configParser(file) {
   let config = {};
   let last = config;
   const lines = fs.readFileSync(file, 'utf-8').split('\n');
   for (let i = 0; i < lines.length; i++) {
     let line = lines[i].trim();
     let classMatch = line.match(/^\[\s*([a-zA-Z0-9_ ]*)\s*\]$/);
-    let assignMatch = line.match(/^([a-zA-Z0-9_]+) *= *([a-zA-Z0-9_. ]+)$/);
+    let assignMatch = line.match(/^([a-zA-Z0-9_]+) ?= ?(.+)$/);
     if (classMatch) {
       last = config;
       let classes = classMatch[1].split(/ /g);

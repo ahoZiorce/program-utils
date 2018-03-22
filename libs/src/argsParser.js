@@ -50,9 +50,7 @@ module.exports = class argsParser {
           if (polyMatch[2]) {
             values = polyMatch[2].split(/,/g);
           }
-          res.flags[polyMatch[1]] = {
-            followed: getValues(values) || [],
-          };
+          res.flags[polyMatch[1]] = getValues(values) || [];
         }
         else {
           res.unknown.push(argv[i]);
@@ -63,10 +61,8 @@ module.exports = class argsParser {
         let chars = monoMatch[1];
         for (let j = 0; j < chars.length; j++) {
           if (this.args.mono.indexOf(chars[j]) > -1) {
-            res.flags[chars[j]] = {
-              followed: [],
-            };
-            lastMono = res.flags[chars[j]];
+            res.flags[chars[j]] = [];
+            lastMono = chars[j];
           }
           else {
             res.unknown.push(chars[j]);
@@ -74,7 +70,7 @@ module.exports = class argsParser {
         }
         if (monoMatch[2] && lastMono) {
           let values = monoMatch[2].split(/,/g);
-          lastMono.followed = getValues(values);
+          res.flags[lastMono] = getValues(values);
         }
       }
       else {

@@ -1,5 +1,5 @@
-![build](https://img.shields.io/travis/ahoZiorce/program-utils.svg)
 # program-utils
+![build](https://img.shields.io/travis/ahoZiorce/program-utils.svg)
 A module to parse arguments and to provide easy configuration file.
 
 ## Parse config
@@ -99,9 +99,11 @@ If you want to parse args you can do this by doing for example
 ```javascript
   const programUtils = require('program-utils');
   let argsParser = new programUtils.argsParser();
+  let arr = ['-v'];
   let args = argsParser
   .addCharFlag('v') // Adds a mono char flag to be recognized
   .addCharFlag('h') // Adds a second
+//.setSourceArray(arr, startingIndex) Sets the source array
   .addStringFlag('help') // Adds a string arg
   .getResult();
 ```

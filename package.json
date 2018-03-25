@@ -12,7 +12,7 @@
     "url": "https://github.com/ahoZiorce/program-utils/issues"
   },
   "description": "A module to parse arguments and to provide easy configuration file",
-  "main": "libs/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha --reporter spec"
   },

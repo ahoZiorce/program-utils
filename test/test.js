@@ -21,7 +21,6 @@ let res = new programUtils.argsParser()
   .addCharFlag('s')
   .addCharFlag('v')
   .getResult();
-console.log(JSON.stringify(res));
 /* eslint-disable */
 describe('The args parser', () => {
   describe('the result object', () => {

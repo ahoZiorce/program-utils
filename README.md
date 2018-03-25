@@ -1,5 +1,5 @@
 # program-utils
-![build](https://img.shields.io/travis/ahoZiorce/program-utils.svg)
+![build](https://img.shields.io/travis/ahoZiorce/program-utils.svg)  
 A module to parse arguments and to provide easy configuration file.
 
 ## Parse config

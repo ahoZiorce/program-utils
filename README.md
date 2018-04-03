@@ -1,5 +1,5 @@
 # program-utils
-![Build-status](https://img.shields.io/travis/ahoZiorce/program-utils.svg) ![npm-downloads](https://img.shields.io/npm/dt/program-utils.svg) ![Dependencies](https://img.shields.io/david/ahoZiorce/program-utils.svg)  
+![npm-version](https://img.shields.io/npm/v/program-utils.svg) ![build-status](https://img.shields.io/travis/ahoZiorce/program-utils.svg) ![npm-downloads](https://img.shields.io/npm/dt/program-utils.svg) ![dependencies-status](https://img.shields.io/david/ahoZiorce/program-utils.svg)  
 A module to parse arguments and to provide easy configuration file.
 
 ## Parse config

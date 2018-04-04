@@ -1,14 +1,25 @@
 # program-utils
-![npm-version](https://img.shields.io/npm/v/program-utils.svg) ![build-status](https://img.shields.io/travis/ahoZiorce/program-utils.svg) ![npm-downloads](https://img.shields.io/npm/dt/program-utils.svg) ![dependencies-status](https://img.shields.io/david/ahoZiorce/program-utils.svg)  
+
+![npm-version](https://img.shields.io/npm/v/program-utils.svg) ![build-status](https://img.shields.io/travis/ahoZiorce/program-utils.svg) ![npm-downloads](https://img.shields.io/npm/dt/program-utils.svg) ![dependencies-status](https://img.shields.io/david/ahoZiorce/program-utils.svg)
+
 A module to parse arguments and to provide easy configuration file.
 
+## 1.1.0 Changelog
+
+* It is now possible to prevent the value parsing with the config parser using `:=` assignment.
+* Linted README.md and modified some things in it.
+
 ## Parse config
+
 The config style is inspired from the windows INI file. But it works slightly differently.
+
 ```javascript
 const programUtils = require('program-utils');
 let parsedConfig = programUtils.parseConfig(filePath);
 ```
+
 Exemples :
+
 ```ini
 # example.conf
 
@@ -20,9 +31,11 @@ nbr = 5.5
 # you can do a comment with an '#' on a blank line
 # => {foo:"bar", spam: true, t: false, nbr:5.5}
 ```
+
 Every value that is not true, false, or a number is a string.
 
 But you can do subobjects with the syntax `[obj subobj]`
+
 ```ini
 # example.conf
 
@@ -38,6 +51,7 @@ var_in_comp_in_test_in_global = bar
 ```
 
 Notes and other examples
+
 ```ini
 # example.conf
 
@@ -69,9 +83,24 @@ to_much_space=  space
 # so in this example "no_space" is equal to "space" but "to_much_space" is equal to " space"
 ```
 
-### Build a config
+You can also force the config parser to not parse the value using `:=` instead of `=`:
+
+```ini
+# Will be equal to 45 as a number
+my_number=45
+# Will be equal to "45" as a string
+my_other_number:=45
+
+# It works also with booleans
+a_bool=true
+string_bool:=true
+```
+
+## Build a config
+
 You might want to build a config, for example the first time your program is run, in this case you
 can use the config builder.
+
 ```javascript
   const programUtils = require('program-utils');
   let builder = new programUtils.configBuilder();
@@ -79,12 +108,12 @@ can use the config builder.
     .addSection('hey') // this will add a [hey]
     .setValue('t', 't') // this will add "t=t"
     .letSpace() // this will jump a line
-    .addComment()
+    .addComment('the line above is empty')
  // .toString(); -- Returns a string containing the config content
     .toFile('./config.conf'); // Directly writes config into a file
 
   /*  outputs in config.conf :
-  
+
     [hey]
     t=t
 
@@ -95,7 +124,9 @@ can use the config builder.
 ```
 
 ## Args parser
-If you want to parse args you can do this by doing for example
+
+If you want to parse args you can do this by doing for example :
+
 ```javascript
   const programUtils = require('program-utils');
   let argsParser = new programUtils.argsParser();
@@ -103,12 +134,14 @@ If you want to parse args you can do this by doing for example
   let args = argsParser
   .addCharFlag('v') // Adds a mono char flag to be recognized
   .addCharFlag('h') // Adds a second
-//.setSourceArray(arr, startingIndex) Sets the source array
+//.setSourceArray(arr, startingIndex) Sets the source array and its starting point
   .addStringFlag('help') // Adds a string arg
   .getResult();
 ```
+
 So now when the program is launched it will result according to args passed
 For example
+
 ```json
 args => "-v"
 {"flags":{"v":[]},"unknown":[]}
@@ -117,7 +150,7 @@ args => "-vh"
 {"flags":{"v":[],"h":[]},"unknown":[]}
 
 args => "-vhp"
-{"flags":{"v":[],"h":[]},"unknown":["p"]}
+{"flags":{"v":[],"h":[]},"unknown":["-p"]}
 
 args => "-vh=45"
 {"flags":{"v":[],"h":[45]},"unknown":[]}
@@ -137,6 +170,6 @@ args => "-h=100 -v=bar --help=true --wtf"
 
 Here it is
 
-# License
+## License
 
 MIT

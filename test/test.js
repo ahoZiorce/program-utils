@@ -74,7 +74,7 @@ describe('The config builder', () => {
 describe('The config parser', () => {
   it('should parse correctly a config', () => {
     let config = programUtils.parseConfig(`${__dirname}/testParser.conf`);
-    expect(JSON.stringify(config)).to.be.equal('{"sbo":{"t":"t"},"snbo":"this is a test","tbo":"overriden","random":{"this":"is random","very_random":{"this":"is even more random !"}},"tests":{"weird_spaces":{"ok":"so this should be here","ok2":" so this would have a space at the beginning","ok4":"wo","ok5":"wo also"},"special_values":{"nbr1":5,"nbr2":5.5,"nbr3":0.5,"v1":true,"v2":false}}}');
+    expect(JSON.stringify(config)).to.be.equal('{"sbo":{"t":"t"},"snbo":"this is a test","tbo":"overriden","random":{"this":"is random","very_random":{"this":"is even more random !"}},"tests":{"weird_spaces":{"ok":"so this should be here","ok2":" so this would have a space at the beginning","ok4":"wo","ok5":"wo also"},"special_values":{"nbr1":5,"nbr2":5.5,"nbr3":0.5,"v1":true,"v2":false}},"strict_values":{"test":{"true_bool":true,"false_bool":false,"true_string":"true","false_string":"false","a_number":432,"another_number":43.43,"string_number":"432","another_string_number":"43.43"}}}');
   });
 });
 /* eslint-enable */
